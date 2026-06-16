@@ -8,26 +8,26 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SauceDemoHomePage {
+
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By burgerMenuButton = By.id("react-burger-menu-btn");
-    private By logoutLink = By.id("logout_sidebar_link");
-    private By loginButton = By.id("login-button");
+    private By burgerMenuButton = By.xpath("//button[@id='react-burger-menu-btn']");
+    private By logoutLink       = By.xpath("//a[@id='logout_sidebar_link']");
+    private By loginButton      = By.xpath("//input[@id='login-button']");
 
     public SauceDemoHomePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-
     public void openBurgerMenu() {
-    wait.until(ExpectedConditions.elementToBeClickable(burgerMenuButton)).click();
-}
+        wait.until(ExpectedConditions.elementToBeClickable(burgerMenuButton)).click();
+    }
 
     public void clickLogout() {
-    wait.until(ExpectedConditions.elementToBeClickable(logoutLink)).click();
-}
+        wait.until(ExpectedConditions.elementToBeClickable(logoutLink)).click();
+    }
 
     public void logout() {
         openBurgerMenu();
@@ -42,6 +42,4 @@ public class SauceDemoHomePage {
             return false;
         }
     }
-    
 }
-

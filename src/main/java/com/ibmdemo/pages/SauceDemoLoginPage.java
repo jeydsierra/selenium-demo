@@ -13,13 +13,11 @@ public class SauceDemoLoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-//-------------------------- LOCATORS ---------------------------
-
-    private By usernameField = By.id("user-name");
-    private By passwordField = By.id("password");
-    private By loginButton   = By.id("login-button");
-    private By errorMessage  = By.cssSelector("[data-test='error']");
-    private By productTitle  = By.className("title");
+    private By usernameField = By.xpath("//input[@id='user-name']");
+    private By passwordField = By.xpath("//input[@id='password']");
+    private By loginButton   = By.xpath("//input[@id='login-button']");
+    private By errorMessage  = By.xpath("//h3[@data-test='error']");
+    private By productTitle  = By.xpath("//span[@class='title']");
 
     public SauceDemoLoginPage(WebDriver driver) {
         this.driver = driver;
@@ -29,8 +27,6 @@ public class SauceDemoLoginPage {
     public void open() {
         driver.get("https://www.saucedemo.com");
     }
-
-//-------------------------- ACTIONS -----------------------------
 
     public void enterUsername(String username) {
         WebElement field = wait.until(
