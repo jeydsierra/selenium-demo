@@ -1,26 +1,18 @@
 package com.ibmdemo.tests;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.ibmdemo.pages.SauceDemoLoginPage;
 
-public class SauceDemoLoginTest {
+public class SauceDemoLoginTest extends BaseTest {
 
-    private WebDriver driver;
     private SauceDemoLoginPage loginPage;
 
     @BeforeMethod
     public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
         loginPage = new SauceDemoLoginPage(driver);
         loginPage.open();
     }
@@ -104,10 +96,4 @@ public class SauceDemoLoginTest {
         };
     }
 
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 }
